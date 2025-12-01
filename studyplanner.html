@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Study Planner – TopicWise</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ===== Reset & Body ===== */
+* { box-sizing: border-box; margin:0; padding:0; }
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #080e2c;
+    color: #fff;
+}
+
+/* ===== Navigation ===== */
+nav {
+    margin: 20px auto;
+    width: 900px;
+    height: 55px;
+    background-color: #0d143d;
+    border-radius: 20px;
+    position: relative;
+    font-size: 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+nav a {
+    line-height: 55px;
+    height: 100%;
+    font-size: 14px;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    color: #ffffff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    padding: 0 15px;
+}
+nav a:hover { color: #1c5fa0; }
+nav .animation {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    z-index: 0;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    background-color: #3498db;
+}
+nav a:nth-child(1) { width: 120px; }
+nav a:nth-child(2) { width: 140px; }
+nav a:nth-child(3) { width: 120px; }
+nav a:nth-child(4) { width: 120px; }
+nav a:nth-child(5) { width: 120px; }
+nav a:nth-child(6) { width: 120px; }
+nav a:nth-child(1):hover ~ .animation { width: 120px; left: 0; background-color: #3498db; }
+nav a:nth-child(2):hover ~ .animation { width: 140px; left: 120px; background-color: #e67e22; }
+nav a:nth-child(3):hover ~ .animation { width: 120px; left: 260px; background-color: #2ecc71; }
+nav a:nth-child(4):hover ~ .animation { width: 120px; left: 380px; background-color: #9b59b6; }
+nav a:nth-child(5):hover ~ .animation { width: 120px; left: 500px; background-color: #f1c40f; }
+nav a:nth-child(6):hover ~ .animation { width: 120px; left: 620px; background-color: #e74c3c; }
+
+
+/* ===== Page Title ===== */
+h2 { text-align: center; margin: 30px 0; font-size: 28px; font-weight: 600; }
+
+/* ===== Subject Selection ===== */
+.subject-select {
+    max-width: 900px;
+    margin: 20px auto;
+    background-color: rgba(10,16,49,0.8);
+    padding: 20px;
+    border-radius: 10px;
+}
+.subject-select label {
+    display: block;
+    margin: 10px 0;
+    font-size: 16px;
+}
+.subject-select input {
+    margin-right: 10px;
+}
+
+/* ===== Study Planner Section ===== */
+.study-planner {
+    max-width: 900px;
+    margin: 20px auto 50px auto;
+    background-color: rgba(10,16,49,0.8);
+    padding: 20px;
+    border-radius: 10px;
+}
+.subject-container {
+    margin-bottom: 20px;
+}
+.subject-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    background-color: #0d143d;
+    border-radius: 8px;
+}
+.subject-header:hover { background-color: #1c5fa0; }
+.subject-title { font-weight: 500; font-size: 18px; }
+.progress-bar {
+    width: 60%;
+    height: 20px;
+    background-color: #1c5fa0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background-color: #3498db;
+    transition: width 0.3s ease;
+}
+
+/* ===== Drop-down topics ===== */
+.topics-list {
+    display: none;
+    margin-top: 10px;
+    padding-left: 20px;
+}
+.topics-list label {
+    display: block;
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+/* ===== Footer ===== */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    color: #fff;
+    border-top: 1px solid #080422;
+    background-color: #110927;
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+    <a href="index.html">Home</a>
+    <a href="subject.html">Subjects</a>
+    <a href="studyplanner.html">Study Plan</a>
+    <a href="exam-mode.html">Exam Mode</a>
+    <a href="countdown.html">Countdown</a>
+    <a href="resources.html">Resources</a>
+    <div class="animation"></div>
+</nav>
+
+<h2>Study Planner</h2>
+
+<!-- Subject Selection -->
+<div class="subject-select">
+    <p>Select the subjects you are studying:</p>
+    <label><input type="checkbox" value="Additional Mathematics"> Additional Mathematics</label>
+    <label><input type="checkbox" value="Agriculture Science"> Agriculture Science</label>
+    <label><input type="checkbox" value="Biology"> Biology</label>
+    <label><input type="checkbox" value="Building Technology"> Building Technology</label>
+    <label><input type="checkbox" value="Caribbean History"> Caribbean History</label>
+    <label><input type="checkbox" value="Chemistry"> Chemistry</label>
+    <label><input type="checkbox" value="Clothing and Textiles"> Clothing and Textiles</label>
+    <label><input type="checkbox" value="Economics"> Economics</label>
+    <label><input type="checkbox" value="Electronic Document Preparation And Management (EDPM)"> EDPM</label>
+    <label><input type="checkbox" value="Electrical Technology"> Electrical Technology</label>
+    <label><input type="checkbox" value="English A"> English A</label>
+    <label><input type="checkbox" value="English B"> English B</label>
+    <label><input type="checkbox" value="French"> French</label>
+    <label><input type="checkbox" value="Food and Nutrition"> Food and Nutrition</label>
+    <label><input type="checkbox" value="Geography"> Geography</label>
+    <label><input type="checkbox" value="Human and Social Biology"> Human and Social Biology</label>
+    <label><input type="checkbox" value="Information Technology"> Information Technology</label>
+    <label><input type="checkbox" value="Integrated Science"> Integrated Science</label>
+    <label><input type="checkbox" value="Mathematics (General)"> Mathematics (General)</label>
+    <label><input type="checkbox" value="Mechanical Technology"> Mechanical Technology</label>
+    <label><input type="checkbox" value="Music"> Music</label>
+    <label><input type="checkbox" value="Office Administration"> Office Administration</label>
+    <label><input type="checkbox" value="Physical Education"> Physical Education</label>
+    <label><input type="checkbox" value="Physics"> Physics</label>
+    <label><input type="checkbox" value="Portuguese"> Portuguese</label>
+    <label><input type="checkbox" value="Priciples of Accounts"> Principles of Accounts</label>
+    <label><input type="checkbox" value="Priciples of Business"> Principles of Business</label>
+    <label><input type="checkbox" value="Religious Education"> Religious Education</label>
+    <label><input type="checkbox" value="Social Studies"> Social Studies</label>
+    <label><input type="checkbox" value="Spanish"> Spanish</label>
+    <label><input type="checkbox" value="Technical Drawing"> Technical Drawing</label>
+    <label><input type="checkbox" value="Theater Arts"> Theater Arts</label>
+    <label><input type="checkbox" value="Visual Arts"> Visual Arts</label>
+    <button onclick="generatePlanner()">Generate Planner</button>
+</div>
+  
+
+<!-- Planner Output -->
+<div class="study-planner" id="planner"></div>
+
+<script>
+// Sample topics for each subject
+const subjectTopics = {
+    "Additional Mathematics": ["Number Theory", "Consumer Arithmetic", "Sets", "Measurement", "Statistics", "Algebra", "Relations, Functions And Graphs", "Geometry And Trigonometry", "Vectors And Matrices"],
+ "Agriculture Science": ["Role And Importance Of Agriculture", "Challenges Confronting Agriculture", "Alternative To Conventional Farming", "Economic Factors Of Production", "Trade Agreements", "Farm Financing And Support Services", "Farm Organization And Planning", "Soil And Soil Fertility", "Land Preparation", "Plant Morphology And Physiology", "Plant Genetics, Breeding And Biotechnology", "Crop Husbandry", "Harvesting And Postharvest Practices", "Processing And Utilization", "Morphology And Physiology", "Nutrition", "Housing", "Animal Genetics, Breeding And Reproduction", "Animal Husbandry", "Animal Products Technology", "Horticulture", "Animal Management"],
+ "Biology": ["Living Organisms In The Environment", "Life Processes And Disease", "Continuity And Variation"],
+ "Building Technology": ["Safety, Health And Welfare", "Hand Tools And Bench Work", "Machine Operations", "Upholstery", "Finishes", "Furniture Construction", "Drawing And Design", "Introduction To Computer", "Career Opportunities"],
+ "Caribbean History": ["The Indigenous Peoples And The Europeans", "Caribbean Economy And Slavery", "Resistance And Revolt", "Metropolitan Movements Towards Emancipation", "Adjustments To Emancipation, 1838 - 1876", "Caribbean Economy 1875 -1985", "The United States In The Caribbean, 1776 - 1985", "Caribbean Political Development Up To 1985", "Caribbean Society, 1900 - 1985"],
+ "Chemistry": ["States Of Matter", "Mixtures And Separations", "Atomic Structure", "Periodic Table And Periodicity", "Structure And Bonding", "Mole Concept", "Acids, Bases And Salts", "Oxidation-Reduction Reactions", "Electrochemistry", "Rates Of Reaction", "Energetics", "Sources Of Hydrocarbon Compounds", "Organic Chemistry - An Introduction", "Reactions Of Carbon Compounds", "Polymers", "Characteristics Of Metals", "Reactivity And Extraction Of Metals", "Uses Of Metals", "Impact Of Metals On Living Systems And The Environment", "Non-Metals", "Qualitative Analysis"],
+ "Clothing and Textiles": ["Fibres", "Fabrics And Fabric Finishes", "Care And Maintenance Of Textile Products", "Consumer Aspects", "Clothing And Culture", "Career Opportunities", "Sewing Equipment", "Basic Pattern Drafting", "Commercial Patterns", "Basic Construction Processes", "Special Techniques In Garment Construction", "Simple Soft Furnishings"],
+ "Economics": ["The Nature Of Economics", "Production, Economic Resources And Resource Allocation", "Markets And Prices", "The Financial Sector", "Economic Management: Policies And Goals", "International Trade", "Caribbean Economies In A Global Environment"],
+ "Electronic Document Preparation And Management (EDPM)": ["Fundamentals Of Computing", "Keyboard Mastery", "Introduction To Application Software", "Use Of Application Software", "Business Document Preparation", "Specialised Document Preparation", "Electronic Communication", "Document Management", "Ethics"],
+ "Electrical Technology": ["Safety, Health And Welfare", "Electrical Principles", "Power, Electrical Motors And Generators", "Electrical Installation", "Electronics", "Electrical/Electronic Drafting", "Introduction To Computer", "Career Opportunities"],
+ "English A": ["Informative Discourse", "Literary Discourse", "Persuasive Discourse"],
+ "English B": ["Drama", "Poetry", "Prose Fiction"],
+ "French": ["Establishing And Maintaining Social Relationships", "Giving, Seeking And Responding To Information", "Expressing Emotions, Attitudes And Other Responses", "Connectives"],
+ "Food and Nutrition": ["Nutritive Value Of Foods", "Nutrition For The Life Cycle", "Diet, Health And Nutritional Status", "Equipment And Utensils For Food Preparation And Service", "Food Hygiene And Safety", "Food Preservation", "Consumerism And Purchasing", "Scientific Principles In Food Preparation", "Management Of Food Preparation And Service", "Meal Planning And Service", "Food Preparation Methods", "Large-Scale Food Preparation And Service"],
+ "Geography": ["Map Reading And Field Study", "Natural Systems", "Human Systems", "Human–Environment Systems"],
+ "Human and Social Biology": ["Living Organisms And The Environment", "Life Processes", "Heredity And Variation", "Disease And Its Impact On Humans", "The Impact Of Health Practices On The Environment"],
+ "Information Technology": ["Fundamentals Of Hardware And Software", "Problem-Solving And Program Design", "Program Implementation", "Applications And Implications Of Information And Communications Technology", "Information Processing", "Wordprocessing, Presentation And Web Page Design", "Spreadsheets", "Database Management"],
+ "Integrated Science": ["Units Of Life", "Reproduction And Growth In Plants", "Reproduction And Growth In Animals", "Transport Systems", "Excretion", "Sense Organs And Coordination", "Health", "Conservation Of Energy", "Energy In Life Processes", "Fossil Fuels And Alternative Sources Of Energy", "Electricity And Lighting", "Temperature Control And Ventilation", "The Universe And Our Solar System", "The Terrestrial Environment"],
+ "Mathematics (General)": ["Number Theory", "Consumer Arithmetic", "Sets", "Measurement", "Statistics", "Algebra", "Relations, Functions And Graphs", "Geometry And Trigonometry", "Vectors And Matrices"],
+ "Mechanical Technology": ["Safety, Health And Welfare", "Machine Tools", "Bench Work/Hand Tools", "Layout, Measurement And Testing", "Sheet Metal Fabrication", "Machine Devices", "Preventative Maintenance", "Engineering Design", "Metallurgy", "Introduction To Computer", "Career Opportunities"],
+ "Music": ["Listening And Appraising", "Performing", "Composing"],
+ "Office Administration": ["Office Orientation", "Communication", "Recruitment And Orientation", "Records And Information Management", "Reception And Hospitality", "Meetings", "Travel Arrangements", "Human Resource Management", "Accounts And Financial Services", "Procurement And Inventory Management", "Sales, Marketing And Customer Service", "Operations", "Despatch And Transport Services"],
+ "Physical Education": ["History And Development Of Physical Education And Sport", "Anatomy And Physiology", "Fitness And Performance", "Health And Nutrition", "Trends And Social Issues"],
+ "Physics": ["Mechanics", "Thermal Physics And Kinetic Theory", "Waves And Optics", "Electricity And Magnetism", "The Physics Of The Atom"],
+ "Portuguese": ["Establishing And Maintaining Social Relationships", "Giving, Seeking And Responding To Information", "Expressing Emotions, Attitudes And Other Responses", "Connectives"],
+ "Priciples of Accounts": ["Introduction To Principles Of Accounts", "The Classified Balance Sheet", "Books Of Original Entry", "Ledgers And The Trial Balance", "Preparation And Analysis Of Financial Statements Of The Sole-Trader", "End Of Period Adjustments", "Control Systems", "Incomplete Records", "Accounting For Partnerships", "Accounting For Corporations", "Accounting For Co-Operative Societies", "Accounting For Non-Trading Organizations", "Manufacturing Accounts", "Payroll Accounting"],
+ "Priciples of Business": ["The Nature Of Business", "Internal Organizational Environment", "Establishing A Business", "Legal Aspects Of Business", "Production", "Marketing", "Business Finance", "Role Of Government In An Economy", "Social Accounting And Global Trade", "Regional And Global Business Environment"],
+ "Religious Education": ["Essentials Of Religion", "Christianity", "Hinduism", "Islam", "Judaism", "Caribbean Indigenous Religions", "Human Life Issues", "The Bible", "God", "Concept Of Sin And Salvation", "The Ramayan/Bhagvad Geeta", "The Absolute And Avatars", "Concept Of Sin And Liberation"],
+ "Spanish": ["Establishing And Maintaining Social Relationships", "Giving, Seeking And Responding To Information", "Expressing Emotions, Attitudes And Other Responses", "Connectives"],
+ "Social Studies": ["Individual, Family And Society", "Sustainable Development And Use Of Resources", "Development And Use Of Resources", "Regional Integration", "Communication", "Consumer Affairs", "Tourism"],
+ "Technical Drawing": ["Plane And Solid Geometry", "Building Drawing", "Mechanical Engineering Drawing"],
+ "Theater Arts": ["Theatre Personnel And Terminology", "Safety In Theatre", "Stage Positions And Levels", "Performance Skills", "Types Of Performance Space", "Text Analysis And Critical Evaluation", "Production Components Of Dance And Drama", "Pre-Rehearsal, Production And Post-Production Processes", "Origins And Development Of Cultural Forms In The Region", "Functions And Meanings Of Cultural Forms", "Practitioners", "Use Of Space And Other Theatrical Elements In Cultural Forms", "Cultural Forms As They Relate To Texts", "Performance Modes Within Cultural Forms", "Relationship Of Cultural Forms To Contemporary Or Popular Culture"],
+ "Visual Arts": ["Drawing", "Painting And Mixed-Media", "Graphic And Communication Design", "Printmaking", "Textile Design And Manipulation", "Sculpture And Ceramics", "Leathercraft", "Fibre And Decorative Arts"]
+}
+;
+
+// Generate planner
+function generatePlanner() {
+    const plannerDiv = document.getElementById('planner');
+    plannerDiv.innerHTML = '';
+    const checkboxes = document.querySelectorAll('.subject-select input[type=checkbox]:checked');
+    checkboxes.forEach(cb => {
+        const subject = cb.value;
+
+        // Container
+        const container = document.createElement('div');
+        container.className = 'subject-container';
+
+        // Header with progress bar
+        const header = document.createElement('div');
+        header.className = 'subject-header';
+
+        const title = document.createElement('span');
+        title.className = 'subject-title';
+        title.textContent = subject;
+
+        const progressBar = document.createElement('div');
+        progressBar.className = 'progress-bar';
+        const progressFill = document.createElement('div');
+        progressFill.className = 'progress-fill';
+        progressBar.appendChild(progressFill);
+
+        header.appendChild(title);
+        header.appendChild(progressBar);
+        container.appendChild(header);
+
+        // Drop-down topics
+        const topicsDiv = document.createElement('div');
+        topicsDiv.className = 'topics-list';
+
+        subjectTopics[subject].forEach(topic => {
+            const label = document.createElement('label');
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.value = topic;
+            checkbox.onchange = () => updateProgress(progressFill, topicsDiv);
+            label.appendChild(checkbox);
+            label.appendChild(document.createTextNode(topic));
+            topicsDiv.appendChild(label);
+        });
+
+        container.appendChild(topicsDiv);
+        plannerDiv.appendChild(container);
+
+        // Toggle topics visibility
+        header.onclick = () => {
+            topicsDiv.style.display = topicsDiv.style.display === 'block' ? 'none' : 'block';
+        };
+    });
+}
+
+// Update progress bar
+function updateProgress(progressFill, topicsDiv) {
+    const total = topicsDiv.querySelectorAll('input[type=checkbox]').length;
+    const checked = topicsDiv.querySelectorAll('input[type=checkbox]:checked').length;
+    const percent = Math.round((checked / total) * 100);
+    progressFill.style.width = percent + '%';
+}
+</script>
+
+<footer>
+    ©️ 2025 TopicWise. All Rights Reserved.
+</footer>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TopicWise – Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            background: #080e2c;
+            color: rgb(255, 255, 255);
+        }
+
+        /* ===== Header Image ===== */
+        header { 
+            width: 100%;
+        }
+
+        header img { 
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ===== Navigation ===== */
+        nav {
+            margin: 20px auto;
+            width: 820px;
+            height: 55px;
+            background-color: #0d143d;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative;
+            font-size: 0;
+        }
+
+        nav a {
+            line-height: 55px;
+            height: 100%;
+            font-size: 14px;
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+            text-decoration: none;
+            text-transform: uppercase;
+            text-align: center;
+            color: #ffffff;
+            font-weight: 500;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+        }
+
+        nav .animation {
+            position: absolute;
+            height: 100%;
+            top: 0;
+            z-index: 0;
+            transition: all 0.5s ease;
+            border-radius: 10px;
+        }
+
+        nav a:nth-child(1) { width: 120px; } /* Home */
+        nav a:nth-child(2) { width: 140px; } /* Exam Mode */
+        nav a:nth-child(3) { width: 100px; } /* About */
+        nav a:nth-child(4) { width: 120px; } /* Questions */
+        nav a:nth-child(5) { width: 120px; } /* Subjects */
+        nav a:nth-child(6) { width: 120px; } /* Resources */
+
+        nav a:nth-child(1):hover ~ .animation { width: 120px; left: 0; background-color: #3498db; }
+        nav a:nth-child(2):hover ~ .animation { width: 140px; left: 120px; background-color: #e67e22; }
+        nav a:nth-child(3):hover ~ .animation { width: 100px; left: 260px; background-color: #2ecc71; }
+        nav a:nth-child(4):hover ~ .animation { width: 120px; left: 360px; background-color: #9b59b6; }
+        nav a:nth-child(5):hover ~ .animation { width: 120px; left: 480px; background-color: #f1c40f; }
+        nav a:nth-child(6):hover ~ .animation { width: 120px; left: 600px; background-color: #e74c3c; }
+
+        /* ===== Content Sections ===== */
+        .section {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: #0a1031c0;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+
+        .section h2 {
+            color:  #ffffff textheaders;
+            margin-top: 0;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        .section p {
+            color: #ffffff;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            margin-top: 50px;
+            font-size: 16px;
+            color: #ffffff;
+            border-top: 1px solid #080422;
+            background-color: #110927;
+        }
+
+        @media screen and (max-width: 900px) {
+            nav {
+                width: 95%;
+            }
+            nav a { font-size: 14px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header image -->
+    <header>
+        <img src="header2.0.png" alt="TopicWise Header">
+    </header>
+
+    <!-- Navigation bar -->
+   <nav>
+    <a href="index.html">Home</a>
+    <a href="subject.html">Subjects</a>
+    <a href="studyplanner.html">Study Plan</a>
+    <a href="exam-mode.html">Exam Mode</a>
+    <a href="countdown.html">Countdown</a>
+    <a href="resources.html">Resources</a>
+    <div class="animation"></div>
+</nav>
+
+    <!-- Content Sections -->
+    <div class="section">
+        <h2>About TopicWise</h2>
+        <p>TopicWise is an all-in-one platform created by students for students. It provides digital access to exam questions, resources, and study materials, perfect for those who may not have access to physical papers or textbooks.</p>
+    </div>
+
+    <div class="section">
+        <h2>How It Works</h2>
+        <p>Simply select one or more subjects, explore topic-specific questions, and test your knowledge interactively. TopicWise allows you to practice efficiently and track your progress to prepare for exams effectively.</p>
+    </div>
+
+    <div class="section">
+        <h2>Get Started</h2>
+        <p>Use the navigation above to browse questions, practice in exam mode, view subject topics, and access resources. Start practicing today and boost your exam performance with TopicWise!</p>
+    </div>
+
+    <footer>
+        ©️ 2025 TopicWise. All Rights Reserved.
+    </footer>
+
+</body>
+</html>

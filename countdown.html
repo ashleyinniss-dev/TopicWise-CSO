@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Countdown – TopicWise</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin:0; padding:0; }
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #080e2c;
+    color: #fff;
+}
+nav {
+    margin: 20px auto;
+    width: 900px;
+    height: 55px;
+    background-color: #0d143d;
+    border-radius: 10px;
+    position: relative;
+    font-size: 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+nav a {
+    line-height: 55px;
+    height: 100%;
+    font-size: 14px;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    color: #ffffff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    padding: 0 15px;
+}
+nav a:hover { color: #1c5fa0; }
+nav .animation {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    z-index: 0;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    background-color: #3498db;
+}
+nav a:nth-child(1){width:120px;}
+nav a:nth-child(2){width:140px;}
+nav a:nth-child(3){width:120px;}
+nav a:nth-child(4){width:120px;}
+nav a:nth-child(5){width:120px;}
+nav a:nth-child(6){width:120px;}
+nav a:nth-child(1):hover~.animation{width:120px;left:0;background-color:#3498db;}
+nav a:nth-child(2):hover~.animation{width:140px;left:120px;background-color:#e67e22;}
+nav a:nth-child(3):hover~.animation{width:120px;left:260px;background-color:#2ecc71;}
+nav a:nth-child(4):hover~.animation{width:120px;left:380px;background-color:#9b59b6;}
+nav a:nth-child(5):hover~.animation{width:120px;left:500px;background-color:#f1c40f;}
+nav a:nth-child(6):hover~.animation{width:120px;left:620px;background-color:#e74c3c;}
+
+h2 { text-align:center; margin:30px 0; font-size:28px; font-weight:600; }
+
+.countdown-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto 50px auto;
+}
+
+.countdown-box {
+    background-color: rgba(10,16,49,0.85);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.countdown-box h3 { margin-bottom:15px; font-size:22px; }
+
+.countdown-time {
+    display:flex;
+    justify-content: space-around;
+    margin-top:10px;
+    font-size:16px;
+}
+.countdown-time div { text-align:center; }
+
+footer {
+    text-align:center;
+    padding:20px;
+    font-size:14px;
+    color:#fff;
+    border-top:1px solid #080422;
+    background-color:#110927;
+}
+</style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="subject.html">Subjects</a>
+    <a href="studyplanner.html">Study Plan</a>
+    <a href="exam-mode.html">Exam Mode</a>
+    <a href="countdown.html">Countdown</a>
+    <a href="resources.html">Resources</a>
+    <div class="animation"></div>
+</nav>
+
+<h2>Countdown to Exams</h2>
+
+<div class="countdown-grid">
+    <div class="countdown-box">
+        <h3>Additional Mathematics – June 4, 2026 – 9:00 AM</h3>
+        <div class="countdown-time">
+            <div><span id="am-days">0</span><br>Days</div>
+            <div><span id="am-hours">0</span>:<span id="am-minutes">0</span>:<span id="am-seconds">0</span><br>H:M:S</div>
+        </div>
+    </div>
+    <div class="countdown-box">
+        <h3>Agricultural Science – May 27, 2026 – 9:00 AM</h3>
+        <div class="countdown-time">
+            <div><span id="ag-days">0</span><br>Days</div>
+            <div><span id="ag-hours">0</span>:<span id="ag-minutes">0</span>:<span id="ag-seconds">0</span><br>H:M:S</div>
+        </div>
+    </div>
+</div>
+
+<script>
+function startCountdown(ids, dateStr) {
+    const target = new Date(dateStr);
+    const daysEl = document.getElementById(ids[0]);
+    const hoursEl = document.getElementById(ids[1]);
+    const minutesEl = document.getElementById(ids[2]);
+    const secondsEl = document.getElementById(ids[3]);
+
+    function update() {
+        const now = new Date();
+        let diff = target - now;
+        if(diff < 0) { diff = 0; }
+
+        const days = Math.floor(diff / (1000*60*60*24));
+        const hours = Math.floor((diff / (1000*60*60)) % 24);
+        const minutes = Math.floor((diff / (1000*60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+
+        daysEl.innerText = days;
+        hoursEl.innerText = hours.toString().padStart(2,'0');
+        minutesEl.innerText = minutes.toString().padStart(2,'0');
+        secondsEl.innerText = seconds.toString().padStart(2,'0');
+    }
+
+    update();
+    setInterval(update, 1000);
+}
+
+// Initialize
+startCountdown(["am-days","am-hours","am-minutes","am-seconds"], "2026-06-04T09:00:00");
+startCountdown(["ag-days","ag-hours","ag-minutes","ag-seconds"], "2026-05-27T09:00:00");
+</script>
+
+<footer>
+    ©️ 2025 TopicWise. All Rights Reserved.
+</footer>
+
+</body>
+</html>
